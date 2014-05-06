@@ -36,11 +36,13 @@ namespace ConsoleFindItems
                 return _resultList;
         }
 
-        public void RetrieveAndSaveWebPage(string urlString)
+        public void RetrieveAndWriteWebPageToFile(string urlString)
         {
             WebRequest wrGETURL;
             wrGETURL = WebRequest.Create(urlString);
-            string targetFile = _fileBase + "test2.html";
+            string targetFile = TransactionSettings.SavedWebPages 
+                + EBAY_PHOTO_HARVESTER.Utilities.GenerateRandomString() 
+                + ".html";
             string htmlString = "";
 
             Stream objStream;
